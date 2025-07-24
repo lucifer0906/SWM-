@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sai Wire Mesh – Business Website
 
-## Getting Started
+## Project Description
+Sai Wire Mesh (SWM) is a business website for a fine wire mesh manufacturing company. The site showcases the company’s values, team, products, and commitment to quality, providing essential information for potential clients and partners. Built with modern web technologies, it delivers a professional, responsive, and SEO-friendly experience.
 
-First, run the development server:
+## Features
+- **Company Overview:** About page with company history, values, and team.
+- **Product Listings:** Dedicated section for products and specifications.
+- **Contact Form:** Easy way for customers to reach out (if implemented).
+- **Responsive Design:** Optimized for desktop and mobile devices.
+- **Modern UI:** Clean, accessible, and visually appealing interface.
+- **SEO Optimized:** Follows best practices for discoverability.
+- **Performance:** Fast load times and optimized assets.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Folder & File Structure
+```
+swm-website/
+├── public/                # Static assets (images, SVGs, favicon, etc.)
+│   ├── images/            # Product and team images
+│   └── ...
+├── src/
+│   ├── app/               # Next.js app directory
+│   │   ├── about/         # About page
+│   │   ├── contact/       # Contact page
+│   │   ├── products/      # Products page
+│   │   ├── globals.css    # Global styles
+│   │   ├── layout.tsx     # Root layout
+│   │   └── page.tsx       # Home page
+│   ├── components/        # Reusable React components
+│   │   ├── Navbar.tsx     # Navigation bar
+│   │   ├── Footer.tsx     # Footer
+│   │   └── ...
+│   ├── lib/               # Utility functions
+│   └── ...
+├── package.json           # Project metadata and dependencies
+├── tailwind.config.js     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript configuration
+├── next.config.ts         # Next.js configuration
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
+- **Next.js** (React framework for SSR/SSG)
+- **React** (UI library)
+- **TypeScript** (type safety)
+- **Tailwind CSS** (utility-first CSS framework)
+- **Framer Motion** (animations)
+- **Node.js** (runtime)
+- **PostCSS** (CSS processing)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation & Local Development
+1. **Clone the repository:**
+   ```bash
+   git clone <repo-url>
+   cd swm-website
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+4. **Open in browser:**
+   Visit [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## SEO Best Practices Followed
+- Semantic HTML structure for accessibility and SEO
+- Descriptive page titles and meta descriptions (customize in layout/page files)
+- Optimized images with proper alt text
+- Clean, crawlable URLs
+- Fast load times and responsive design
+- Use of Next.js for server-side rendering (SSR) and static site generation (SSG)
 
-## Learn More
+## Deployment Instructions
 
-To learn more about Next.js, take a look at the following resources:
+### Local Production Build
+1. **Build the app:**
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+2. **Start the production server:**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deploying to a Live Domain (e.g., GoDaddy)
+1. **Choose a hosting provider:**
+   - For static export: Use Vercel, Netlify, or similar for seamless Next.js deployment.
+   - For custom domain (e.g., GoDaddy):
+     - Deploy to Vercel/Netlify and point your GoDaddy DNS to the hosting provider.
+     - Or, use a VPS/server, upload the `.next` build, and run with Node.js.
+2. **Set up environment variables (if any).**
+3. **Update DNS records:**
+   - In GoDaddy, set an A record or CNAME to your hosting provider’s address.
+4. **Verify deployment:**
+   - Visit your domain to ensure the site is live.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Known Issues
+- No formal certifications listed yet (see About page for details).
+- Contact form may require backend/API setup for full functionality.
+- Some images may use placeholder URLs; update as needed.
 
-## Deploy on Vercel
+## Contribution Instructions
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Commit your changes with clear messages.
+4. Open a pull request describing your changes.
+5. Ensure code follows project conventions and passes linting/tests.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the [MIT License](LICENSE). 

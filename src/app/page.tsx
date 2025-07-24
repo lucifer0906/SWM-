@@ -1,103 +1,281 @@
-import Image from "next/image";
+'use client';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
+import Navbar from '@/components/Navbar';
+import { TextReveal } from '@/components/ui/text-reveal';
+import { SparklesText } from '@/components/ui/sparkles-text';
+import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
+import { AnimatedButton } from '@/components/ui/animated-button';
+import { BackgroundBeams } from '@/components/ui/background-beams';
+import { IconCloud } from '@/components/ui/icon-cloud';
+import { MagicGlobe } from '@/components/ui/magic-globe';
+
+const features = [
+  {
+    title: 'Precision Manufacturing',
+    description: 'State-of-the-art manufacturing facilities ensuring consistent quality and precise specifications for every mesh product.',
+    className: 'md:col-span-2',
+    image: '/images/1.jpg'
+  },
+  {
+    title: 'Factory Grade Pricing',
+    description: 'Competitive pricing that supports your margins.',
+    className: 'md:col-span-1',
+    image: '/images/2.jpg'
+  },
+  {
+    title: 'Custom Solutions',
+    description: 'Tailored wire mesh solutions designed to meet specific industry requirements and applications.',
+    className: 'md:col-span-1',
+    image: '/images/3.jpg'
+  },
+  {
+    title: 'Industry Experience',
+    description: '40+ years of excellence serving automotive, pharmaceutical, food processing, and water treatment sectors.',
+    className: 'md:col-span-2',
+    image: '/images/4.jpg'
+  }
+];
+
+const industries = [
+  {
+    name: 'Automotive',
+    description: 'Precision filters for automotive manufacturing',
+    icon: '🚗'
+  },
+  {
+    name: 'Pharmaceutical',
+    description: 'High-grade mesh for medical filtration',
+    icon: '💊'
+  },
+  {
+    name: 'Food Processing',
+    description: 'Food-safe mesh solutions',
+    icon: '🍽️'
+  },
+  {
+    name: 'Water Treatment',
+    description: 'Filtration systems for water purification',
+    icon: '💧'
+  },
+  {
+    name: 'Aerospace',
+    description: 'Specialized mesh for aerospace applications',
+    icon: '✈️'
+  },
+  {
+    name: 'Chemical',
+    description: 'Chemical-resistant filtration solutions',
+    icon: '🧪'
+  },
+  {
+    name: 'Mining',
+    description: 'Heavy-duty screening solutions',
+    icon: '⛏️'
+  },
+  {
+    name: 'Oil & Gas',
+    description: 'High-performance filtration systems',
+    icon: '🛢️'
+  }
+];
+
+interface InfiniteLoopSliderProps {
+  children: React.ReactNode;
+  duration: number;
+  reverse?: boolean;
+}
+
+const InfiniteLoopSlider: React.FC<InfiniteLoopSliderProps> = ({ children, duration, reverse = false }) => {
+  return (
+    <motion.div
+      initial={{ x: reverse ? "-100%" : "0%" }}
+      animate={{ x: reverse ? "0%" : "-100%" }}
+      transition={{
+        duration,
+        repeat: Infinity,
+        ease: "linear",
+        repeatType: "loop",
+      }}
+      className="flex gap-4 whitespace-nowrap"
+    >
+      {children}
+      {children}
+    </motion.div>
+  );
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Navbar />
+      <div className="relative bg-background">
+        {/* Hero Section (theme-aware) */}
+        <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0">
+          <BackgroundBeams />
+          <div className="relative z-10 text-center px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-8"
+            >
+              <TextReveal text="SAI WIRE MESH" className="text-4xl md:text-6xl font-bold text-foreground mb-4" />
+              <SparklesText text="Trusted Wire Mesh Solutions" className="text-2xl md:text-4xl text-accent" />
+            </motion.div>
+            
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="max-w-3xl mx-auto text-lg text-muted-foreground mb-12"
+            >
+               Sai Wire Mesh is built on 30+ years of hands-on experience. Founded by two seasoned professionals from the manufacturing industry, we deliver high-quality wire mesh products tailored for factories, contractors, and industrial needs.
+            </motion.p>
+            
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+              <AnimatedButton href="/products">
+                Explore Products
+              </AnimatedButton>
+              <AnimatedButton href="/contact" variant="outline">
+                Get in Touch
+              </AnimatedButton>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Features Section */}
+        <section className="py-16 px-4 relative">
+          <BackgroundBeams />
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-base font-semibold leading-7 text-accent uppercase tracking-wide">Why Choose Us</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Excellence in Every <span className="text-accent">Mesh</span>
+              </p>
+              <p className="mt-3 text-lg text-muted-foreground max-w-2xl mx-auto">
+                Delivering precision and quality in wire mesh manufacturing 
+              </p>
+            </div>
+            <BentoGrid className="gap-4">
+              {features.map((feature, i) => (
+                <BentoGridItem
+                  key={i}
+                  title=""
+                  description={feature.description}
+                  className={`${feature.className} group`}
+                  header={
+                    <div className="relative h-[280px] w-full overflow-hidden rounded-lg">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={i < 2}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-background/30 rounded-lg" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h3 className="text-xl font-bold text-foreground">{feature.title}</h3>
+                      </div>
+                    </div>
+                  }
+                />
+              ))}
+            </BentoGrid>
+          </div>
+        </section>
+
+        {/* Global Presence Section */}
+        <section className="py-15 relative">
+          <BackgroundBeams />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div className="w-full">
+                <h2 className="text-4xl font-bold mb-4 text-foreground mt-8 md:mt-16">National Presence</h2>
+                <p className="text-lg text-muted-foreground mb-1 mt-1">
+                  Our wire mesh solutions are trusted by industries across the nation, meeting diverse needs with precision and reliability.
+                </p>
+                <div className="aspect-square max-w-[400px] mx-auto flex items-center justify-center">
+                </div>
+              </div>
+              <div className="w-full bg-card/40 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-4">Industries We Serve</h3>
+                <div className="relative w-full overflow-hidden">
+                  <div className="flex flex-col gap-4">
+                    <div className="relative overflow-hidden">
+                      <div className="mask-gradient">
+                        <InfiniteLoopSlider duration={30}>
+                          {industries.slice(0, 4).map((industry) => (
+                            <div
+                              key={industry.name}
+                              className="flex-none w-60 sm:w-64 bg-card/30 backdrop-blur-sm rounded-lg p-3 sm:p-4 mx-2 border-l-4 border-accent hover:shadow-lg transition-shadow"
+                            >
+                              <div className="text-2xl mb-2">{industry.icon}</div>
+                              <h4 className="text-base font-semibold text-accent mb-1">{industry.name}</h4>
+                              <p className="text-xs text-muted-foreground line-clamp-2">{industry.description}</p>
+                            </div>
+                          ))}
+                        </InfiniteLoopSlider>
+                      </div>
+                    </div>
+                    <div className="relative overflow-hidden">
+                      <div className="mask-gradient">
+                        <InfiniteLoopSlider duration={30} reverse={true}>
+                          {industries.slice(4).map((industry) => (
+                            <div
+                              key={industry.name}
+                              className="flex-none w-60 sm:w-64 bg-card/30 backdrop-blur-sm rounded-lg p-3 sm:p-4 mx-2 border-l-4 border-accent hover:shadow-lg transition-shadow"
+                            >
+                              <div className="text-2xl mb-2">{industry.icon}</div>
+                              <h4 className="text-base font-semibold text-accent mb-1">{industry.name}</h4>
+                              <p className="text-xs text-muted-foreground line-clamp-2">{industry.description}</p>
+                            </div>
+                          ))}
+                        </InfiniteLoopSlider>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <style jsx>{`
+                  .mask-gradient {
+                    mask-image: linear-gradient(
+                      to right,
+                      transparent,
+                      black 20%,
+                      black 80%,
+                      transparent
+                    );
+                    -webkit-mask-image: linear-gradient(
+                      to right,
+                      transparent,
+                      black 20%,
+                      black 80%,
+                      transparent
+                    );
+                  }
+                `}</style>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="relative py-10 overflow-hidden">
+          <BackgroundBeams />
+          <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h2 className="text-4xl font-bold mb-8 text-foreground">Ready to Transform Your Industry?</h2>
+            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Let's discuss how our precision wire mesh solutions can enhance your manufacturing process.
+            </p>
+            <AnimatedButton href="/contact" size="lg">
+              Start Your Journey
+            </AnimatedButton>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
