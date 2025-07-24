@@ -56,7 +56,7 @@ export const MagicGlobe = ({ className = '' }: GlobeProps) => {
         rotation += 0.002;
         const children = Array.from(globe.children) as HTMLDivElement[];
         
-        points.forEach((point: { x: number; y: number; z: number }, i: number) => {
+        points.forEach((_, i: number) => {
           const dot = children[i];
           if (!dot) return;
 

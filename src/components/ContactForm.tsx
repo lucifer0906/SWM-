@@ -48,7 +48,7 @@ export default function ContactForm() {
       setSuccess("Your message has been sent successfully!");
       setFormData({ type: "quote", name: "", email: "", company: "", phone: "", message: "" });
       if (formRef.current) formRef.current.reset();
-    } catch (err) {
+    } catch { 
       setError("There was an error sending your message. Please try again later.");
     }
     setSending(false);
