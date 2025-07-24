@@ -211,9 +211,10 @@ export default function Home() {
                               key={industry.name}
                               className="flex-none w-60 sm:w-64 bg-card/30 backdrop-blur-sm rounded-lg p-3 sm:p-4 mx-2 border-l-4 border-accent hover:shadow-lg transition-shadow"
                             >
-                              <div className="text-2xl mb-2">{industry.icon}</div>
-                              <h4 className="text-base font-semibold text-accent mb-1">{industry.name}</h4>
-                              <p className="text-xs text-muted-foreground line-clamp-2">{industry.description}</p>
+                              <div className="flex flex-col justify-center h-full">
+                                <h4 className="text-base font-semibold text-accent mb-1">{industry.name}</h4>
+                                <p className="text-xs text-muted-foreground line-clamp-2">{industry.description}</p>
+                              </div>
                             </div>
                           ))}
                         </InfiniteLoopSlider>
@@ -227,9 +228,10 @@ export default function Home() {
                               key={industry.name}
                               className="flex-none w-60 sm:w-64 bg-card/30 backdrop-blur-sm rounded-lg p-3 sm:p-4 mx-2 border-l-4 border-accent hover:shadow-lg transition-shadow"
                             >
-                              <div className="text-2xl mb-2">{industry.icon}</div>
-                              <h4 className="text-base font-semibold text-accent mb-1">{industry.name}</h4>
-                              <p className="text-xs text-muted-foreground line-clamp-2">{industry.description}</p>
+                              <div className="flex flex-col justify-center h-full">
+                                <h4 className="text-base font-semibold text-accent mb-1">{industry.name}</h4>
+                                <p className="text-xs text-muted-foreground line-clamp-2">{industry.description}</p>
+                              </div>
                             </div>
                           ))}
                         </InfiniteLoopSlider>
