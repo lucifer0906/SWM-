@@ -31,7 +31,7 @@ export const MagicGlobe = ({ className = '' }: GlobeProps) => {
       }
 
       // Create points on the globe surface
-      const points = [];
+      const points: { x: number; y: number; z: number }[] = [];
       for (let i = 0; i < 200; i++) {
         const theta = Math.random() * Math.PI * 2;
         const phi = Math.acos(2 * Math.random() - 1);
@@ -42,7 +42,7 @@ export const MagicGlobe = ({ className = '' }: GlobeProps) => {
       }
 
       // Create point elements
-      points.forEach((point) => {
+      points.forEach((point: { x: number; y: number; z: number }) => {
         const dot = document.createElement('div');
         dot.className = 'absolute w-1 h-1 rounded-full bg-accent/50';
         globe.appendChild(dot);
@@ -56,7 +56,7 @@ export const MagicGlobe = ({ className = '' }: GlobeProps) => {
         rotation += 0.002;
         const children = Array.from(globe.children) as HTMLDivElement[];
         
-        points.forEach((point, i) => {
+        points.forEach((point: { x: number; y: number; z: number }, i: number) => {
           const dot = children[i];
           if (!dot) return;
 

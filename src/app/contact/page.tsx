@@ -1,15 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+
 import Navbar from '@/components/Navbar';
 import ContactForm from '@/components/ContactForm';
 
-const inquiryTypes = [
-  { id: 'quote', name: 'Request Quote' },
-  { id: 'info', name: 'Product Information' },
-  { id: 'support', name: 'Technical Support' },
-  { id: 'other', name: 'Other' },
-];
+
 
 export default function Contact() {
   return (

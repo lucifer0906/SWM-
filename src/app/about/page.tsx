@@ -1,6 +1,7 @@
 'use client';
 
 import Navbar from '@/components/Navbar';
+import { motion } from 'framer-motion';
 
 const values = [
   {
@@ -130,7 +131,7 @@ export default function About() {
             <div className="max-w-2xl w-full p-8 rounded-2xl shadow-lg border border-border bg-card">
   <h3 className="text-4xl font-bold mb-8 text-foreground">Our Commitment to Quality</h3>
   <p className="text-lg text-muted-foreground whitespace-pre-line">
-At Sai Wire Mesh, quality isn't just a checkbox, it's our foundation.
+At Sai Wire Mesh, quality isn&apos;t just a checkbox, it&apos;s our foundation.
 With over 30 years of firsthand experience in manufacturing, our founders have instilled a deep commitment to precision and durability in every product we deliver.
 We follow time-tested practices, thorough inspections, and material-grade checks to ensure that every mesh meets the functional and structural demands of industrial use.
 <br />

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import { TextReveal } from '@/components/ui/text-reveal';
@@ -9,8 +9,6 @@ import { SparklesText } from '@/components/ui/sparkles-text';
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
 import { AnimatedButton } from '@/components/ui/animated-button';
 import { BackgroundBeams } from '@/components/ui/background-beams';
-import { IconCloud } from '@/components/ui/icon-cloud';
-import { MagicGlobe } from '@/components/ui/magic-globe';
 
 const features = [
   {
@@ -43,42 +41,42 @@ const industries = [
   {
     name: 'Automotive',
     description: 'Precision filters for automotive manufacturing',
-    icon: '🚗'
+    icon: '&#x1F697;'
   },
   {
     name: 'Pharmaceutical',
     description: 'High-grade mesh for medical filtration',
-    icon: '💊'
+    icon: '&#x1F48A;'
   },
   {
     name: 'Food Processing',
     description: 'Food-safe mesh solutions',
-    icon: '🍽️'
+    icon: '&#x1F371;'
   },
   {
     name: 'Water Treatment',
     description: 'Filtration systems for water purification',
-    icon: '💧'
+    icon: '&#x1F4A7;'
   },
   {
     name: 'Aerospace',
     description: 'Specialized mesh for aerospace applications',
-    icon: '✈️'
+    icon: '&#x2708;'
   },
   {
     name: 'Chemical',
     description: 'Chemical-resistant filtration solutions',
-    icon: '🧪'
+    icon: '&#x1F9D0;'
   },
   {
     name: 'Mining',
     description: 'Heavy-duty screening solutions',
-    icon: '⛏️'
+    icon: '&#x26CF;'
   },
   {
     name: 'Oil & Gas',
     description: 'High-performance filtration systems',
-    icon: '🛢️'
+    icon: '&#x1F6E2;'
   }
 ];
 
