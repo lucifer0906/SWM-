@@ -42,7 +42,7 @@ export const MagicGlobe = ({ className = '' }: GlobeProps) => {
       }
 
       // Create point elements
-      points.forEach((point: { x: number; y: number; z: number }) => {
+      points.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.className = 'absolute w-1 h-1 rounded-full bg-accent/50';
         globe.appendChild(dot);
