@@ -1,8 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
-import { MagicCard } from "@/components/magicui/magic-card";
 
 const values = [
   {
